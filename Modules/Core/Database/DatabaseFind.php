@@ -6,8 +6,8 @@ class DatabaseFind {
 
     private $pdo = null;
     private $tableName = null;
-    private $findCols = null;
-    private $whereData = null;
+    private $findCols = [];
+    private $whereData = [];
     private $sqlQuery = null;
 
     public function __construct($pdo, $tableName, $findCols)
@@ -44,7 +44,7 @@ class DatabaseFind {
             $this->sqlQuery .= "* ";
         }
 
-        $this->sqlQuery .= "FROM ".$this->tableName;
+        $this->sqlQuery .= "FROM `".$this->tableName."`";
     }
 
     public function where($data)
@@ -69,7 +69,9 @@ class DatabaseFind {
             $data[':'.$col] = $val;
         }
 
-        $this->pdo->prepare($this->sqlQuery)->exec($data)->fetch();
+        $prep = $this->pdo->prepare($this->sqlQuery);
+        $prep->execute($data);
+        return $prep->fetch();
     }
 
     public function all()
@@ -81,7 +83,9 @@ class DatabaseFind {
             $data[':'.$col] = $val;
         }
 
-        $this->pdo->prepare($this->sqlQuery)->exec($data)->fetchAll();
+        $prep = $this->pdo->prepare($this->sqlQuery);
+        $prep->execute($data);
+        return $prep->fetchAll();
     }
 
 }

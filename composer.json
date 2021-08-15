@@ -21,6 +21,7 @@
         "aura/router": "3.x-dev",
         "laminas/laminas-diactoros": "2.7.x-dev",
         "aura/session": "2.x-dev",
-        "aura/auth": "4.x-dev"
+        "aura/auth": "4.x-dev",
+        "twig/twig": "^3.0"
     }
 }
