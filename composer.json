@@ -1,0 +1,24 @@
+{
+    "name": "apollyon/ares",
+    "description": "PHP Framework for Web Portals",
+    "type": "project",
+    "license": "proprietary",
+    "authors": [
+        {
+            "name": "Bhaskar Verma",
+            "email": "bhaskarverma.hacked00@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "autoload": {
+        "psr-4": {
+            "Ares\\": ""
+        }
+    },
+    "require": {
+        "aura/router": "3.x-dev",
+        "laminas/laminas-diactoros": "2.7.x-dev",
+        "aura/session": "2.x-dev",
+        "aura/auth": "4.x-dev"
+    }
+}
