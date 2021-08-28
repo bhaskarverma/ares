@@ -6,15 +6,21 @@ class DatabaseFind {
 
     private $pdo = null;
     private $tableName = null;
+    private $modelObj = null;
+    private $modelProps = null;
     private $findCols = [];
     private $whereData = [];
     private $sqlQuery = null;
 
-    public function __construct($pdo, $tableName, $findCols)
+    public function __construct($pdo, $tableName, $findCols, $modelObj)
     {
         $this->pdo = $pdo;
         $this->tableName = $tableName;
         $this->findCols = $findCols;
+        $this->modelObj = $modelObj;
+
+        $reflectionClass = new \ReflectionClass(get_class($this->modelObj));
+        $this->modelProps = $reflectionClass->getProperties();
 
         $this->prepQuery();
     }
@@ -71,7 +77,16 @@ class DatabaseFind {
 
         $prep = $this->pdo->prepare($this->sqlQuery);
         $prep->execute($data);
-        return $prep->fetch();
+        $retVal = $prep->fetch();
+
+        $returnObj = new \stdClass();
+
+        foreach($retVal as $col => $val)
+        {
+            $returnObj->$col = $val;
+        }
+
+        return $returnObj;
     }
 
     public function all()
@@ -85,7 +100,23 @@ class DatabaseFind {
 
         $prep = $this->pdo->prepare($this->sqlQuery);
         $prep->execute($data);
-        return $prep->fetchAll();
+        $retVal = $prep->fetchAll();
+
+        $returnArr = [];
+
+        for($i=0; $i<count($retVal); $i++)
+        {
+            $returnObj = new \stdClass();
+
+            foreach($retVal[$i] as $col => $val)
+            {
+                $returnObj->$col = $val;
+            }
+
+            array_push($returnArr, $returnObj);
+        }
+
+        return $returnArr;
     }
 
 }

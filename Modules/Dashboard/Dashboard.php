@@ -35,11 +35,7 @@ class Dashboard {
         array_push($data['scripts'], "plugins/bootstrap/js/bootstrap.bundle.min.js");
         array_push($data['scripts'], "plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js");
         array_push($data['scripts'], "js/adminlte.js");
-        // array_push($data['scripts'], "css/adminlte.min.css");
-        // array_push($data['scripts'], "css/adminlte.min.css");
-        // array_push($data['scripts'], "css/adminlte.min.css");
-        // array_push($data['scripts'], "css/adminlte.min.css");
-        // array_push($data['scripts'], "css/adminlte.min.css");
+        array_push($data['scripts'], "js/ares.js");
 
         $data['paths'] = [];
         $data['module'] = [];

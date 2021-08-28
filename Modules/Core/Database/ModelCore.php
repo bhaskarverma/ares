@@ -4,13 +4,17 @@ namespace Ares\Modules\Core\Database;
 
 use Ares\Modules\Core\Database\DatabaseFind;
 use Ares\Modules\Core\Database\DatabaseCore;
+use Aura\Session\SessionFactory;
 
 class ModelCore {
 
     protected $pdo = null;
 
-    protected function init($dbJson)
+    protected function init()
     {
+        $session_factory = new SessionFactory();
+        $this->session = $session_factory->newInstance($_COOKIE)->getSegment('Ares');
+        $dbJson = $this->session->get("dbJson", "Not Found");
         $dbCore = new DatabaseCore($dbJson);
         $this->pdo = $dbCore->getConnection();
     }
@@ -32,8 +36,13 @@ class ModelCore {
     public function find($cols = [])
     {
         $tableName = $this->getTableName();
-        $obj = new DatabaseFind($this->pdo, $tableName, $cols);
+        $obj = new DatabaseFind($this->pdo, $tableName, $cols, $this);
         return $obj;
+    }
+
+    public function query($sql, $data = [])
+    {
+        return $this->pdo->prepare($sql)->exec($data);
     }
 
     public function update()

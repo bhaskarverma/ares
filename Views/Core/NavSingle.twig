@@ -1,0 +1,11 @@
+<li class="nav-item">
+<a href="{{ url }}" class="nav-link">
+    <i class="nav-icon fas fa-th"></i>
+    <p>
+    {{ val }}
+    {% if badge %}
+    <span class="right badge badge-{{ badge.type }}">{{ badge.val }}</span>
+    {% endif %}
+    </p>
+</a>
+</li>

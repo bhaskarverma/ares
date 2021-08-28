@@ -10,6 +10,10 @@ use Aura\Router\RouterContainer;
 use Ares\Models\Core\FrameworkRoutesModel;
 use Laminas\Diactoros\ServerRequestFactory;
 use Laminas\Diactoros\Response;
+use Aura\Session\SessionFactory;
+
+$session_factory = new SessionFactory();
+$session = $session_factory->newInstance($_COOKIE)->getSegment('Ares');
 
 $request = ServerRequestFactory::fromGlobals(
     $_SERVER,
@@ -29,13 +33,16 @@ $envJson = json_decode($envStr, true);
 $dbStr = file_get_contents($_SERVER['DOCUMENT_ROOT'].'/Configuration/Database/'.$envJson['env'].'.json');
 $dbJson = json_decode($dbStr, true);
 
-$routeModel = new FrameworkRoutesModel($dbJson);
+$session->set("envJson", $envJson);
+$session->set("dbJson", $dbJson);
+
+$routeModel = new FrameworkRoutesModel();
 
 $routes = $routeModel->find()->all();
 
-for($i=0; $i<count($routes); $i++)
+foreach($routes as $route)
 {
-    $map->{$routes[$i]['routeMethod']}($routes[$i]['routeName'], $routes[$i]['routePath'], $routes[$i]['routeClass']);
+    $map->{$route->routeMethod}($route->routeName, $route->routePath, $route->routeClass);
 }
 
 $matcher = $routerContainer->getMatcher();

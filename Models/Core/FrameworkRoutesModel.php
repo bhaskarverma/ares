@@ -13,8 +13,8 @@ class FrameworkRoutesModel extends ModelCore {
     public $routeClass;
     public $isAuthRequired;
 
-    public function __construct($dbJson)
+    public function __construct()
     {
-        parent::init($dbJson);
+        parent::init();
     }
 }
