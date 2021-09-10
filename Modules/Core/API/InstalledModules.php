@@ -5,6 +5,7 @@ namespace Ares\Modules\Core\API;
 use Ares\Modules\Core\View\ViewEngine;
 use Ares\Models\Core\FrameworkModulesModel;
 use Ares\Models\Core\FrameworkModuleSectionsModel;
+use Ares\Models\Core\FrameworkRoutesModel;
 
 class InstalledModules {
 
@@ -23,12 +24,22 @@ class InstalledModules {
         $this->response = $response;
     }
 
+    public function getRoutes()
+    {
+        $routesModel = new FrameworkRoutesModel();
+        $routes = $routesModel->find()->all();
+        var_dump($routes);
+
+        $this->response->getBody()->write('');
+        return $this->response;
+    }
+
     public function getModules()
     {
         $modulesModel = new FrameworkModulesModel();
 
         $modules = $modulesModel->find()->all();
-
+        
         foreach($modules as $module)
         {
             $navsModel = new FrameworkModuleSectionsModel();

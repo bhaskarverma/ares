@@ -62,23 +62,21 @@
     ),
     'laminas/laminas-zendframework-bridge' => 
     array (
-      'pretty_version' => '1.4.x-dev',
-      'version' => '1.4.9999999.9999999-dev',
+      'pretty_version' => '1.3.0',
+      'version' => '1.3.0.0',
       'aliases' => 
       array (
-        0 => '9999999-dev',
       ),
       'reference' => '13af2502d9bb6f7d33be2de4b51fb68c6cdb476e',
     ),
     'psr/http-factory' => 
     array (
-      'pretty_version' => 'dev-master',
-      'version' => 'dev-master',
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
       'aliases' => 
       array (
-        0 => '1.0.x-dev',
       ),
-      'reference' => '36fa03d50ff82abcae81860bdaf4ed9a1510c7cd',
+      'reference' => '12ac7fcd07e5b077433f5f2bee95b3a771bf61be',
     ),
     'psr/http-factory-implementation' => 
     array (
@@ -89,13 +87,12 @@
     ),
     'psr/http-message' => 
     array (
-      'pretty_version' => 'dev-master',
-      'version' => 'dev-master',
+      'pretty_version' => '1.0.1',
+      'version' => '1.0.1.0',
       'aliases' => 
       array (
-        0 => '1.0.x-dev',
       ),
-      'reference' => 'efd67d1dc14a7ef4fc4e518e7dee91c271d524e4',
+      'reference' => 'f6561bf28d520154e4b0ec72be95418abe6d9363',
     ),
     'psr/http-message-implementation' => 
     array (
@@ -112,33 +109,6 @@
       array (
       ),
       'reference' => 'd49695b909c3b7628b6289db5479a1c204601f11',
-    ),
-    'symfony/polyfill-ctype' => 
-    array (
-      'pretty_version' => 'v1.23.0',
-      'version' => '1.23.0.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '46cd95797e9df938fdd2b03693b5fca5e64b01ce',
-    ),
-    'symfony/polyfill-mbstring' => 
-    array (
-      'pretty_version' => 'v1.23.1',
-      'version' => '1.23.1.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '9174a3d80210dca8daa7f31fec659150bbeabfc6',
-    ),
-    'twig/twig' => 
-    array (
-      'pretty_version' => 'v3.3.2',
-      'version' => '3.3.2.0',
-      'aliases' => 
-      array (
-      ),
-      'reference' => '21578f00e83d4a82ecfa3d50752b609f13de6790',
     ),
     'zendframework/zend-diactoros' => 
     array (
