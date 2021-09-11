@@ -2,6 +2,12 @@
 
 This is a module based MVC Framework based on PHP/JS to create Admin Panels with ease.
 
+You can easily use this framework through Different **Releases** or using the composer
+
+```
+composer create-project apollyon/ares
+```
+
 ## What this provides
 
 This provides a ready to go base for Admin Panel ready to be extended with add-on modules that can be installed.
