@@ -23,3 +23,4 @@ While the Frontend and Presentation Logic is developed with React which interfac
 1. Module Installer System in Framework
 2. Drag and Drop based Module Generator for Ares
 3. A System to Generate Installers for Individual Module Files
+4. Documentation
